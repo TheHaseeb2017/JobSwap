@@ -1,90 +1,93 @@
 import React, { Component } from "react"
-//import React, {useState} from "react"
-import axios from "axios"
-import './CSS/todo.css'
+
 import './RegForm'
-import {Link} from 'react-router-dom'; 
-
-class Login extends Component{
+import './CSS/todo.css'
 
 
-constructor(props) {
-    super(props)
+class Login extends Component {
 
-    this.state = {
- 
-        email : "",
-        password: "",
-        login: false 
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+
+            email: "",
+            password: "",
+            login: false
+
+        }
     }
-}
 
-
-
-
-
-
-/*submitHandler = (e) => {
-    e.preventDefault()
-  
-    axios.post('http://localhost:5000/api/SwapJobs/Register', this.state, {
-     headers: {
-           'Content-Type': 'application/json',
-      }
+    /*submitHandler = (e) => {
+        e.preventDefault()
+      
+        axios.post('http://localhost:5000/api/SwapJobs/Register', this.state, {
+         headers: {
+               'Content-Type': 'application/json',
+          }
+        }
+        )
+    
+    
+        .then(response => {
+            console.log(response)
+        })
+    
     }
-    )
+    */
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
 
-    .then(response => {
-        console.log(response)
-    })
+    render() {
+        const { fname, lname, email, password, confirmPassword, streetAddress, city, state, zipCode } = this.state
+        return (
 
-}
-*/
-changeHandler=(e)  =>{
-    this.setState({
-        [e.target.name]: e.target.value
-    })
-}
-
-
+            <div class = "container">
+                <form onSubmit={this.submitHandler}>
+                    <div>
+                     
+                        
+                        <h1>JobSwap Login Page</h1>
+                    </div>
 
 
-render() {
-    const {fname,lname,email,password,confirmPassword,streetAddress,city,state,zipCode } = this.state
-    return (
+                    <div>
+                    <label>Email Address:  </label>
+                        <input
+                            type='text'
+                            name='email'
+                            onChange={this.changeHandler}
+                            value={lname}
+                            placeholder ="Email Address..."
+                            
+                        />
+                        <br/> 
+                      
+                    </div>
+                    <div>
+                        <label>Password:  </label>
+                        <input
+                            type='password'
+                            name='password'
+                            onChange={this.changeHandler}
+                            value={lname}
+                            placeholder="Password..."
+                            
+                        />
+                        <br/> 
+                    </div>
 
-        <div>
-            <form onSubmit={this.submitHandler}>
-            <div>
-            <h1>JobSwap Login Page</h1>
+
+
+                </form>
             </div>
-
-
-            <div>
-                <label>Email Address </label>
-                <input 
-                type='text' 
-                name ='email' 
-                onChange={this.changeHandler}
-                value={fname}></input>
-            </div>
-            <div>
-                <label>Password </label>
-                <input 
-                type='password' 
-                name ='password' 
-                onChange={this.changeHandler}
-                value={lname}></input>
-            </div>
-
-
-             
-            </form>
-        </div>
-    )
-}
+        )
+    }
 
 
 

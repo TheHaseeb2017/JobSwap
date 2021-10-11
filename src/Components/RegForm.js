@@ -50,7 +50,7 @@ class regForm extends Component {
     render() {
         const { fname, lname, email, password, confirmPassword, streetAddress, city, state, zipCode } = this.state
         return (
-            <div>
+            <div class = "container">
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <h1>JobSwap Registeration Page</h1>
@@ -63,7 +63,11 @@ class regForm extends Component {
                             type='text'
                             name='fname'
                             onChange={this.changeHandler}
-                            value={fname}></input>
+                            value={fname}
+                            placeholder = "First Name..."
+                            
+                        />
+                            
                     </div>
                     <div>
                         <label>Last Name </label>
@@ -71,7 +75,9 @@ class regForm extends Component {
                             type='text'
                             name='lname'
                             onChange={this.changeHandler}
-                            value={lname}></input>
+                            value={lname}
+                            placeholder="Last Name..."
+                        />
                     </div>
                     <div>
                         <label>Email Address </label>
@@ -79,7 +85,10 @@ class regForm extends Component {
                             type='text'
                             name='email'
                             onChange={this.changeHandler}
-                            value={email}></input>
+                            value={email}
+                            placeholder="Email Address..."
+                        />
+                            
                     </div>
                     <div>
                         <label>Password </label>
@@ -87,7 +96,10 @@ class regForm extends Component {
                             type='password'
                             name='password'
                             onChange={this.changeHandler}
-                            value={password}></input>
+                            value={password}
+                            placeholder="Password..."
+                        />
+                            
                     </div>
                     <div>
                         <label>Confirm Password </label>
@@ -95,7 +107,9 @@ class regForm extends Component {
                             type='password'
                             name='confirmPassword'
                             onChange={this.changeHandler}
-                            value={confirmPassword}></input>
+                            value={confirmPassword}
+                            placeholder="Confirm Password..."
+                        />
                     </div>
                     <div>
                         <label>Street Address </label>
@@ -103,7 +117,9 @@ class regForm extends Component {
                             type='text'
                             name='streetAddress'
                             onChange={this.changeHandler}
-                            value={streetAddress}></input>
+                            value={streetAddress}
+                            placeholder="Street Address..."
+                        />
                     </div>
 
                     <div>
@@ -112,7 +128,9 @@ class regForm extends Component {
                             type='text'
                             name='city'
                             onChange={this.changeHandler}
-                            value={city}></input>
+                            value={city}
+                            placeholder="City..."
+                        />
                     </div>
                     <div>
                         <label>State </label>
@@ -120,7 +138,10 @@ class regForm extends Component {
                             type='text'
                             name='state'
                             onChange={this.changeHandler}
-                            value={state}></input>
+                            value={state}
+                            placeholder="State..."
+                        
+                        />
                     </div>
                     <div>
                         <label>ZipCode </label>
@@ -128,10 +149,13 @@ class regForm extends Component {
                             type='text'
                             name='zipCode'
                             onChange={this.changeHandler}
-                            value={zipCode}></input>
+                            value={zipCode}
+                            placeholder="ZipCode..."
+                            
+                        />
                     </div>
 
-                    <button type='submit'>Submit Now</button>
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         )
