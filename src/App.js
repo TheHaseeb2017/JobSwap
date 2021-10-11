@@ -5,6 +5,7 @@ import RegForm from './Components/RegForm'
 import Login from './Components/Login'
 //import { BrowserRouter } from 'react-router-dom';
 import NavBar from './Components/NavBar';
+import Home from './Components/Home'
 
 
 import ReactDOM from 'react-dom';
@@ -17,7 +18,7 @@ function App() {
     <Router>
     <NavBar />
     <Switch>
-      <Route path='/' exact component={Login} />
+      <Route path='/' exact component={Home} />
       <Route path='/regform' component={RegForm} />
       <Route path='/login' component={Login} />
       

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import './RegForm'
 import './CSS/todo.css'
+import Logo from './../Images/jobswap.png'
 
 
 class Login extends Component {
@@ -53,11 +54,12 @@ class Login extends Component {
                      
                         
                         <h1>JobSwap Login Page</h1>
+                        <img className="logo" src={Logo}/>
                     </div>
 
 
                     <div>
-                    <label>Email Address:  </label>
+                    <label></label>
                         <input
                             type='text'
                             name='email'
@@ -70,7 +72,7 @@ class Login extends Component {
                       
                     </div>
                     <div>
-                        <label>Password:  </label>
+                        <label></label>
                         <input
                             type='password'
                             name='password'

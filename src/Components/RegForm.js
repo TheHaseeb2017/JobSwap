@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import './CSS/todo.css'
+import Logo from './../Images/jobswap.png'
 
 class regForm extends Component {
 
@@ -53,12 +54,14 @@ class regForm extends Component {
             <div class = "container">
                 <form onSubmit={this.submitHandler}>
                     <div>
+                        <img className="logo" src={Logo}/>
                         <h1>JobSwap Registeration Page</h1>
+                        
                     </div>
 
 
                     <div>
-                        <label>First Name </label>
+                        <label></label>
                         <input
                             type='text'
                             name='fname'
@@ -70,7 +73,7 @@ class regForm extends Component {
                             
                     </div>
                     <div>
-                        <label>Last Name </label>
+                        <label></label>
                         <input
                             type='text'
                             name='lname'
@@ -80,7 +83,7 @@ class regForm extends Component {
                         />
                     </div>
                     <div>
-                        <label>Email Address </label>
+                        <label></label>
                         <input
                             type='text'
                             name='email'
@@ -91,7 +94,7 @@ class regForm extends Component {
                             
                     </div>
                     <div>
-                        <label>Password </label>
+                        <label></label>
                         <input
                             type='password'
                             name='password'
@@ -102,7 +105,7 @@ class regForm extends Component {
                             
                     </div>
                     <div>
-                        <label>Confirm Password </label>
+                        <label></label>
                         <input
                             type='password'
                             name='confirmPassword'
@@ -112,7 +115,7 @@ class regForm extends Component {
                         />
                     </div>
                     <div>
-                        <label>Street Address </label>
+                        <label></label>
                         <input
                             type='text'
                             name='streetAddress'
@@ -123,7 +126,7 @@ class regForm extends Component {
                     </div>
 
                     <div>
-                        <label>City </label>
+                        <label></label>
                         <input
                             type='text'
                             name='city'
@@ -133,7 +136,7 @@ class regForm extends Component {
                         />
                     </div>
                     <div>
-                        <label>State </label>
+                        <label></label>
                         <input
                             type='text'
                             name='state'
@@ -144,7 +147,7 @@ class regForm extends Component {
                         />
                     </div>
                     <div>
-                        <label>ZipCode </label>
+                        <label></label>
                         <input
                             type='text'
                             name='zipCode'
