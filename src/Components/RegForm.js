@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import axios from "axios"
 import './CSS/todo.css'
 import Logo from './../Images/jobswap.png'
+import { Link } from "react-router-dom";
+//import { Button } from 'semantic-ui-react'
 
 class regForm extends Component {
 
@@ -159,6 +161,12 @@ class regForm extends Component {
                     </div>
 
                     <input type="submit" value="Submit" />
+                    <Link to="/">
+                        <button type = 'button'>
+                            <p>Home</p>  
+                        </button>
+                    </Link>
+
                 </form>
             </div>
         )

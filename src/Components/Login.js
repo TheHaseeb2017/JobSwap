@@ -1,8 +1,11 @@
 import React, { Component } from "react"
-
+import RegForm from "./RegForm"
 import './RegForm'
 import './CSS/todo.css'
 import Logo from './../Images/jobswap.png'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import searchBYZIP from "./searchBYZIP"
 
 
 class Login extends Component {
@@ -82,6 +85,20 @@ class Login extends Component {
                             
                         />
                         <br/> 
+                    </div>
+                    <div> 
+                    <Link to="/regForm">
+                        <button type = 'button'>
+                            <p>Register</p>  
+                        </button>
+                    </Link> 
+                    <Link to="/searchBYZIP">
+                        <button type = 'button'>
+                            <p>Login</p>  
+                        </button>
+                    </Link> 
+                    
+                   
                     </div>
 
 

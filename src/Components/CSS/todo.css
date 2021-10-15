@@ -45,6 +45,21 @@ input[type=submit] {
   margin-left: 22px;
 }
 
+button {
+  background-color: rgb(12, 12, 12);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  /* cursor: pointer; */
+  border-radius: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 22px;
+}
+
 select {
   width: 20%;
   padding: 12px 20px;
@@ -65,6 +80,20 @@ select {
   padding:18px;
   text-align: center;
   box-shadow: 0 8px 6px -6px black;
+  
+ 
+  
+}
+
+.container2{
+  background-color: rgb(65, 130, 190);
+  border-style: bold;
+  border: 12px solid black; 
+  border-radius: 15px;
+  padding:10px;
+  text-align: center;
+  box-shadow: 0 8px 6px -6px black;
+  color:rgb(255, 255, 255);
   
  
   
