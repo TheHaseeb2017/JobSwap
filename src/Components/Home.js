@@ -55,11 +55,7 @@ class Home extends Component {
                                     <p>Register</p>
                                 </button>
                             </Link>
-                            <Link to="/searchBYZIP">
-                                <button type='button'>
-                                    <p>Search by ZipCode</p>
-                                </button>
-                            </Link>
+
                         </div>
 
 

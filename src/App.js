@@ -16,9 +16,12 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/regform' component={RegForm} />
         <Route path='/login' component={Login} />
+        
         <div>
           <NavBar />
           <Route path='/searchBYZIP' component={searchBYZIP} />
+          <Route path='/home' component={Home} />
+
         </div>
       </Switch>
     </Router>

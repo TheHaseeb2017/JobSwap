@@ -15,7 +15,6 @@ class searchBYZIP extends Component {
             zipCode: '',
             jobs: []
 
-
         }
         this.submitHandler = this.submitHandler.bind(this)
     }
@@ -27,27 +26,19 @@ class searchBYZIP extends Component {
         const zipCode = document.querySelector('input').value;
 
 
-        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + zipCode, this.state, {
-
-
-        }
-
-
-        )
-
-
+        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + zipCode, this.state,)
 
             .then(response => response.json())
             .then(response => this.setState({ 'jobs': response }))
 
     }
 
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
 
 
     render() {
@@ -87,19 +78,21 @@ class searchBYZIP extends Component {
 
                 </form>
                 <div>
-                    <p>Jobs Returned</p>
+                    
                     <ul>
+                      
                         {this.state.jobs.map(function (jobs, index) {
                             return (
-                                <div class = "container2" key ={index}>
-                                    <h1> { 'User: ' + jobs.firstName +' ' + jobs.lastName}</h1>
-                                     <h2> {'Job: ' + jobs.jobTitle} </h2>
+                               
+                                <div class="container2" key={index}>
+                                    <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
+                                    <h2> {'Job: ' + jobs.jobTitle} </h2>
                                     <p>  {'Job Descirption: ' + jobs.jobDescription} </p>
                                     <p>  {'Location: ' + jobs.location} </p>
                                     <p>  {'Contact Information: ' + jobs.emailAddress} </p>
-                                    
+
                                 </div>
-                        
+
                             )
                         }
                         )}

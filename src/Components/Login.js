@@ -6,6 +6,8 @@ import Logo from './../Images/jobswap.png'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import searchBYZIP from "./searchBYZIP"
+import axios from "axios"
+import Home from "./Home"
 
 
 class Login extends Component {
@@ -18,28 +20,48 @@ class Login extends Component {
 
             email: "",
             password: "",
-            login: false
+            login: false,
+            error: null
 
         }
     }
 
-    /*submitHandler = (e) => {
+    submitHandler = (e) => {
         e.preventDefault()
-      
-        axios.post('http://localhost:5000/api/SwapJobs/Register', this.state, {
-         headers: {
-               'Content-Type': 'application/json',
-          }
-        }
-        )
-    
-    
-        .then(response => {
-            console.log(response)
-        })
+
+        const email = document.querySelector('input').value;
+        const password = document.querySelector('input[name = password]').value;
+                 
+
+        fetch('http://localhost:5000/api/SwapJobs/Login?username=' + email + '&Password=' + password).then((response) => {
+            if (response.ok) 
+            {
+                this.props.history.push('/home')
+            
+              console.log('Logged in')
+              
+            } 
+            else 
+            {
+              throw new Error('Something went wrong');
+              
+            }
+          })
+          
+          .then((responseJson) => 
+          {
+            
+          })
+          .catch((error) => 
+          {
+            alert("Seems like you provided the wrong information or are not registered with JobSwap you can either, register or try again")
+            console.log(error)
+          });
+  
+        
     
     }
-    */
+    
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -48,7 +70,7 @@ class Login extends Component {
 
 
     render() {
-        const { fname, lname, email, password, confirmPassword, streetAddress, city, state, zipCode } = this.state
+        const { email, password } = this.state
         return (
 
             <div class = "container">
@@ -67,7 +89,7 @@ class Login extends Component {
                             type='text'
                             name='email'
                             onChange={this.changeHandler}
-                            value={lname}
+                            value={email}
                             placeholder ="Email Address..."
                             
                         />
@@ -80,23 +102,19 @@ class Login extends Component {
                             type='password'
                             name='password'
                             onChange={this.changeHandler}
-                            value={lname}
+                            value={password}
                             placeholder="Password..."
                             
                         />
                         <br/> 
                     </div>
                     <div> 
-                    <Link to="/regForm">
-                        <button type = 'button'>
-                            <p>Register</p>  
+                    <input type="submit" value="Login" />
+                    <Link to="/regform">
+                        <button type='button'>
+                            <p>Register</p>
                         </button>
-                    </Link> 
-                    <Link to="/searchBYZIP">
-                        <button type = 'button'>
-                            <p>Login</p>  
-                        </button>
-                    </Link> 
+                    </Link>
                     
                    
                     </div>
