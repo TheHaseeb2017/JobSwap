@@ -14,6 +14,14 @@ const Navbar = () => {
             <Link to="/searchBYZIP">Search for Jobs</Link>
           </li>
 
+          <li>
+            <Link to="/myJobs">My Jobs</Link>
+          </li>
+
+          <li>
+            <Link to="/addJob">Add a Job</Link>
+          </li>
+
 
         </ul>
 

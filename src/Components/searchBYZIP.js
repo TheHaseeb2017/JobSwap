@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import axios from "axios"
 import './CSS/todo.css'
 import Logo from './../Images/jobswap.png'
 import { Link } from "react-router-dom";
-//import { Button } from 'semantic-ui-react
+
 
 class searchBYZIP extends Component {
 
@@ -70,7 +69,7 @@ class searchBYZIP extends Component {
                     <input type="submit" value="Submit" />
                     <Link to="/">
                         <button type='button'>
-                            <p>Search</p>
+                            <p>Home</p>
                         </button>
                     </Link>
 
@@ -78,12 +77,12 @@ class searchBYZIP extends Component {
 
                 </form>
                 <div>
-                    
+
                     <ul>
-                      
+
                         {this.state.jobs.map(function (jobs, index) {
                             return (
-                               
+
                                 <div class="container2" key={index}>
                                     <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
                                     <h2> {'Job: ' + jobs.jobTitle} </h2>

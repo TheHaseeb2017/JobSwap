@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 import searchBYZIP from "./searchBYZIP"
 import axios from "axios"
 import Home from "./Home"
+import myJobs from "./myJobs"
+import { uidContext, uidcontext } from './State'
+
 
 
 class Login extends Component {
@@ -21,47 +24,56 @@ class Login extends Component {
             email: "",
             password: "",
             login: false,
-            error: null
+            error: null,
+
+            userInfo: []
 
         }
     }
+
 
     submitHandler = (e) => {
         e.preventDefault()
 
         const email = document.querySelector('input').value;
         const password = document.querySelector('input[name = password]').value;
-                 
+
 
         fetch('http://localhost:5000/api/SwapJobs/Login?username=' + email + '&Password=' + password).then((response) => {
-            if (response.ok) 
-            {
-                this.props.history.push('/home')
-            
-              console.log('Logged in')
-              
-            } 
-            else 
-            {
-              throw new Error('Something went wrong');
-              
+
+
+            if (response.ok) {
+
+
+                this.props.history.push('/home');
+                return response.json();
+
+
+                // console.log('This is  the userID: ' + this.state.userId); 
+
             }
-          })
-          
-          .then((responseJson) => 
-          {
-            
-          })
-          .catch((error) => 
-          {
-            alert("Seems like you provided the wrong information or are not registered with JobSwap you can either, register or try again")
-            console.log(error)
-          });
-  
-        
-    
+            else {
+                throw new Error('Something went wrong');
+
+            }
+        })
+
+            .then((json) => {
+                //this.state.userId = json.id; 
+
+                uidContext.Provider = json[0].id;
+
+                console.log('this is the user ID: ' + uidContext.Provider)
+            })
+            .catch((error) => {
+                alert("Seems like you provided the wrong information or are not registered with JobSwap you can either, register or try again")
+                console.log(error)
+            });
+
+
+
     }
-    
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -73,28 +85,28 @@ class Login extends Component {
         const { email, password } = this.state
         return (
 
-            <div class = "container">
+            <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
-                     
-                        
+
+
                         <h1>JobSwap Login Page</h1>
-                        <img className="logo" src={Logo}/>
+                        <img className="logo" src={Logo} />
                     </div>
 
 
                     <div>
-                    <label></label>
+                        <label></label>
                         <input
                             type='text'
                             name='email'
                             onChange={this.changeHandler}
                             value={email}
-                            placeholder ="Email Address..."
-                            
+                            placeholder="Email Address..."
+
                         />
-                        <br/> 
-                      
+                        <br />
+
                     </div>
                     <div>
                         <label></label>
@@ -104,19 +116,19 @@ class Login extends Component {
                             onChange={this.changeHandler}
                             value={password}
                             placeholder="Password..."
-                            
+
                         />
-                        <br/> 
+                        <br />
                     </div>
-                    <div> 
-                    <input type="submit" value="Login" />
-                    <Link to="/regform">
-                        <button type='button'>
-                            <p>Register</p>
-                        </button>
-                    </Link>
-                    
-                   
+                    <div>
+                        <input type="submit" value="Login" />
+                        <Link to="/regform">
+                            <button type='button'>
+                                <p>Register</p>
+                            </button>
+                        </Link>
+
+
                     </div>
 
 

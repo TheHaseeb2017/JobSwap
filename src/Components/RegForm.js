@@ -19,7 +19,7 @@ class regForm extends Component {
             confirmPassword: "",
             streetAddress: "",
             city: "",
-            state: "", 
+            state: "",
             zipCode: "",
         }
     }
@@ -53,12 +53,12 @@ class regForm extends Component {
     render() {
         const { fname, lname, email, password, confirmPassword, streetAddress, city, state, zipCode } = this.state
         return (
-            <div class = "container">
+            <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
-                        <img className="logo" src={Logo}/>
+                        <img className="logo" src={Logo} />
                         <h1>JobSwap Registeration Page</h1>
-                        
+
                     </div>
 
 
@@ -69,10 +69,10 @@ class regForm extends Component {
                             name='fname'
                             onChange={this.changeHandler}
                             value={fname}
-                            placeholder = "First Name..."
-                            
+                            placeholder="First Name..."
+
                         />
-                            
+
                     </div>
                     <div>
                         <label></label>
@@ -93,7 +93,7 @@ class regForm extends Component {
                             value={email}
                             placeholder="Email Address..."
                         />
-                            
+
                     </div>
                     <div>
                         <label></label>
@@ -104,7 +104,7 @@ class regForm extends Component {
                             value={password}
                             placeholder="Password..."
                         />
-                            
+
                     </div>
                     <div>
                         <label></label>
@@ -145,7 +145,7 @@ class regForm extends Component {
                             onChange={this.changeHandler}
                             value={state}
                             placeholder="State..."
-                        
+
                         />
                     </div>
                     <div>
@@ -156,14 +156,14 @@ class regForm extends Component {
                             onChange={this.changeHandler}
                             value={zipCode}
                             placeholder="ZipCode..."
-                            
+
                         />
                     </div>
 
                     <input type="submit" value="Submit" />
                     <Link to="/">
-                        <button type = 'button'>
-                            <p>Home</p>  
+                        <button type='button'>
+                            <p>Home</p>
                         </button>
                     </Link>
 
