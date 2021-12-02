@@ -10,8 +10,11 @@ const Navbar = () => {
       <div class="mid">
         <ul class="navbar">
 
-        <li>
+          <li>
             <Link to="/searchBYZIP">Search for Jobs</Link>
+          </li>
+          <li>
+            <Link to="/searchByCat">Search By Category</Link>
           </li>
 
           <li>
@@ -21,6 +24,14 @@ const Navbar = () => {
           <li>
             <Link to="/addJob">Add a Job</Link>
           </li>
+          <li>
+            <Link to="/changePassword">Change Password</Link>
+          </li>
+          <li>
+            <Link to="/changeEmail">Change Email</Link>
+          </li>
+
+
 
 
         </ul>

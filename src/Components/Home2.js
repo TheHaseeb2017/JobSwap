@@ -1,23 +1,36 @@
 import React, { Component } from "react"
+import './RegForm'
 import './CSS/todo.css'
 import Logo from './../Images/jobswap.png'
 import { Link } from "react-router-dom";
+import Navbar from "./NavBar";
+import RegForm from './RegForm'
+import Login from './Login'
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import searchBYZIP from "./searchBYZIP";
 
 
-class searchBYZIP extends Component {
+
+
+
+class Home2 extends Component {
 
 
     constructor(props) {
         super(props)
 
         this.state = {
+
             zipCode: '',
             jobs: []
+
+
+
 
         }
         this.submitHandler = this.submitHandler.bind(this)
     }
-
 
     submitHandler = (e) => {
         e.preventDefault()
@@ -32,7 +45,6 @@ class searchBYZIP extends Component {
 
     }
 
-
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -40,19 +52,32 @@ class searchBYZIP extends Component {
     }
 
 
+
     render() {
-        const { zipCode } = this.state
+        const { zipCode, firstName } = this.state
         return (
+
+
+
             <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
-                        <img className="logo" src={Logo} />
-                        <h1>Search for Jobs by ZipCode</h1>
 
+
+
+                        <h1>Welcome to JobSwap</h1>
+                        <img className="logo" src={Logo} />
                     </div>
 
                     <div>
+
+
+                    </div>
+
+
+                    <div>
                         <label></label>
+                        <h1>  Look for Jobs near you!!! </h1>
                         <input
                             type='text'
                             name='zipCode'
@@ -67,15 +92,11 @@ class searchBYZIP extends Component {
 
 
                     <input type="submit" value="Submit" />
-                    <Link to="/">
-                        <button type='button'>
-                            <p>Home</p>
-                        </button>
-                    </Link>
 
 
 
                 </form>
+
                 <div>
 
                     <ul>
@@ -98,11 +119,13 @@ class searchBYZIP extends Component {
                     </ul>
 
                 </div>
-
             </div>
+
         )
     }
 
+
+
 }
 
-export default searchBYZIP
+export default Home2

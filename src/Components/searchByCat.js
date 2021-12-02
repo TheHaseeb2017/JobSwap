@@ -4,14 +4,14 @@ import Logo from './../Images/jobswap.png'
 import { Link } from "react-router-dom";
 
 
-class searchBYZIP extends Component {
+class searchByCat extends Component {
 
 
     constructor(props) {
         super(props)
 
         this.state = {
-            zipCode: '',
+            catergory: '',
             jobs: []
 
         }
@@ -22,10 +22,10 @@ class searchBYZIP extends Component {
     submitHandler = (e) => {
         e.preventDefault()
 
-        const zipCode = document.querySelector('input').value;
+        const catergory = document.querySelector('input').value;
 
 
-        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + zipCode, this.state,)
+        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + catergory, this.state,)
 
             .then(response => response.json())
             .then(response => this.setState({ 'jobs': response }))
@@ -41,13 +41,13 @@ class searchBYZIP extends Component {
 
 
     render() {
-        const { zipCode } = this.state
+        const { catergory } = this.state
         return (
             <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <img className="logo" src={Logo} />
-                        <h1>Search for Jobs by ZipCode</h1>
+                        <h1>Search for Jobs by Category</h1>
 
                     </div>
 
@@ -55,11 +55,11 @@ class searchBYZIP extends Component {
                         <label></label>
                         <input
                             type='text'
-                            name='zipCode'
-                            ref='zipCode'
+                            name='catergory'
+                            ref='catergory'
                             onChange={this.changeHandler}
-                            value={zipCode}
-                            placeholder="ZipCode..."
+                            value={catergory}
+                            placeholder="Catergory..."
 
                         />
 
@@ -105,4 +105,4 @@ class searchBYZIP extends Component {
 
 }
 
-export default searchBYZIP
+export default searchByCat

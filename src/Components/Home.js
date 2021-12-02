@@ -58,7 +58,7 @@ class Home extends Component {
         return (
 
 
-            
+
             <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
@@ -86,7 +86,7 @@ class Home extends Component {
 
                     <div>
                         <label></label>
-                        <h1>  Look for Jobs near you!!! </h1> 
+                        <h1>  Look for Jobs near you!!! </h1>
                         <input
                             type='text'
                             name='zipCode'
@@ -101,33 +101,33 @@ class Home extends Component {
 
 
                     <input type="submit" value="Submit" />
-    
+
 
 
                 </form>
 
                 <div>
 
-<ul>
+                    <ul>
 
-    {this.state.jobs.map(function (jobs, index) {
-        return (
+                        {this.state.jobs.map(function (jobs, index) {
+                            return (
 
-            <div class="container2" key={index}>
-                <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
-                <h2> {'Job: ' + jobs.jobTitle} </h2>
-                <p>  {'Job Descirption: ' + jobs.jobDescription} </p>
-                <p>  {'Location: ' + jobs.location} </p>
-                <p>  {'Contact Information: ' + jobs.emailAddress} </p>
+                                <div class="container2" key={index}>
+                                    <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
+                                    <h2> {'Job: ' + jobs.jobTitle} </h2>
+                                    <p>  {'Job Descirption: ' + jobs.jobDescription} </p>
+                                    <p>  {'Location: ' + jobs.location} </p>
+                                    <p>  {'Contact Information: ' + jobs.emailAddress} </p>
 
-            </div>
+                                </div>
 
-        )
-    }
-    )}
-</ul>
+                            )
+                        }
+                        )}
+                    </ul>
 
-</div>
+                </div>
             </div>
 
         )

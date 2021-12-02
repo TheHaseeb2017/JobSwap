@@ -2,12 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 import './CSS/todo.css'
 import Logo from './../Images/jobswap.png'
-import { Link } from "react-router-dom";
-import Login from "./Login";
-import { uidContext, uidcontext, tokenContext } from './State'
-
-
-
+import { uidContext, tokenContext } from './State'
 
 const apiUrl = 'http://localhost:5000/api';
 
@@ -18,12 +13,12 @@ const myAxios = axios.create({
     baseURL: apiUrl,
     headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Authorization': `Bearer ${sessionStorage.getItem('myToken')}`,
+        'Authorization': `Bearer ${tokenContext.Provider}`,
     },
 
 });
 
-class myJobs extends Component {
+class viewAllJobs extends Component {
 
 
     constructor(props) {
@@ -42,13 +37,10 @@ class myJobs extends Component {
     submitHandler = (e) => {
 
 
-
         e.preventDefault()
 
-        const userID = document.querySelector('input').value;
 
-
-
+        console.log(tokenContext.Provider);
         myAxios.get('/SwapJobs/ViewMyJob?UserID=' + uidContext.Provider)
 
 
@@ -64,10 +56,8 @@ class myJobs extends Component {
     }
 
     submitHandler2 = (e) => {
-        console.log(tokenContext.Provider);
         e.preventDefault()
-
-
+        console.log(tokenContext.Provider);
         myAxios.post('/SwapJobs/RemoveMyJob?jobID=' + this.state.jobId, {
             headers: {
                 'Content-Type': 'application/json',
@@ -98,7 +88,7 @@ class myJobs extends Component {
 
 
     render() {
-        const { userID, firstName, jobId } = this.state
+        const { jobId } = this.state
         return (
             <div class="container">
                 <form onSubmit={this.submitHandler}>
@@ -174,4 +164,4 @@ class myJobs extends Component {
 
 }
 
-export default myJobs
+export default viewAllJobs
