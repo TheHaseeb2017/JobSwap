@@ -56,7 +56,7 @@ class ChangeEmail extends Component {
 
 
 
-        myAxios.patch().then((response) => {
+        myAxios.patch('http://localhost:5000/api/SwapJobs/ChangeEmail?userID=' + uidContext.Provider + '&newEmail=' + email + '&confirmEmail=' + confirmEmail).then((response) => {
 
 
 
@@ -66,40 +66,19 @@ class ChangeEmail extends Component {
             if (response.status === 200) {
 
 
-                alert('Your password has now been chnaged!!!')
-
-
-
-
-                console.log('this is the user ID: ' + uidContext.Provider)
-
-
-
-
+                alert('Your email has now been chnaged to ' + email +'!!!')
             }
             else {
-                alert("Error occurred check to see if password match and you have the correct email address entered")
+                alert("ERROR Check if the email match and try again.")
                 throw new Error('Something went wrong');
 
             }
-
-
-
         })
-
-
-
-
-
-
 
             .catch((error) => {
                 //alert("Seems like you provided the wrong information or are not registered with JobSwap you can either, register or try again")
                 console.log(error)
             });
-
-
-
     }
 
 
@@ -150,7 +129,7 @@ class ChangeEmail extends Component {
                         <label></label>
                         <input
                             type='text'
-                            name='confirm Email'
+                            name='confirmEmail'
                             onChange={this.changeHandler}
                             value={confirmEmail}
                             placeholder=" Confirm Email Address..."

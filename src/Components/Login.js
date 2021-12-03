@@ -17,7 +17,7 @@ const myAxios = axios.create({
     baseURL: apiUrl,
     headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Authorization': `Bearer ${sessionStorage.getItem('myTokenName')}`,
+        'Authorization': `Bearer ${sessionStorage.getItem('myToken')}`,
     },
 
 });
@@ -85,18 +85,17 @@ class Login extends Component {
 
 
         axios.post('http://localhost:5000/api/SwapJobs/Authenticate?username=' + email + '&password=' + password)
-
+            
             .then(res => {
 
-                console.log(res)
+                //console.log(res)
 
                 const token = res.data;
 
                 sessionStorage.setItem('myToken', token)
                 console.log(sessionStorage.getItem('myToken'))
-                console.log('111111')
                 this.getUser();
-                console.log('222222')
+                
 
 
             })
