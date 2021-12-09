@@ -4,7 +4,7 @@ import Logo from './../Images/jobswap.png'
 import { Link } from "react-router-dom";
 
 
-class searchByCat extends Component {
+class SBCNC extends Component {
 
 
     constructor(props) {
@@ -105,4 +105,4 @@ class searchByCat extends Component {
 
 }
 
-export default searchByCat
+export default SBCNC

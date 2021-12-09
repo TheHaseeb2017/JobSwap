@@ -15,6 +15,9 @@ import ChangePassword from './Components/ChangePassword';
 import ChangeEmail from './Components/ChangeEmail';
 import searchByCat from './Components/searchByCat';
 import viewAllJobs from './Components/viewAllJobs';
+import Information from './Components/Information';
+import SBZNC from './Components/SBZNC';
+import SBCNC from './Components/SBCNC';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/regform' component={RegForm} />
         <Route path='/login' component={Login} />
+        <Route path='/SBZNC' component={SBZNC} />
+        <Route path='/SBCNC' component={SBCNC} />
+        <Route path='/description' component={Information} />
 
         <div>
           <NavBar />
@@ -33,9 +39,8 @@ function App() {
           <Route path='/changePassword' component={ChangePassword} />
           <Route path='/changeEmail' component={ChangeEmail} />
           <Route path='/searchByCat' component={searchByCat} />
-
-
-
+          <Route path='/description' component={Information} />
+  
         </div>
       </Switch>
     </Router>

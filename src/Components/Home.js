@@ -32,13 +32,16 @@ class Home extends Component {
         this.submitHandler = this.submitHandler.bind(this)
     }
 
+    componentDidMount() {
+        this.submitHandler();
+    }
+
+
     submitHandler = (e) => {
-        e.preventDefault()
-
-        const zipCode = document.querySelector('input').value;
+    
 
 
-        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + zipCode, this.state,)
+        fetch('http://localhost:5000/api/SwapJobs/ViewAllJob' , this.state,)
 
             .then(response => response.json())
             .then(response => this.setState({ 'jobs': response }))
@@ -60,13 +63,14 @@ class Home extends Component {
 
 
             <div class="container">
-                <form onSubmit={this.submitHandler}>
+              
                     <div>
 
 
 
                         <h1>Welcome to JobSwap</h1>
                         <img className="logo" src={Logo} />
+
                     </div>
 
                     <div>
@@ -80,31 +84,32 @@ class Home extends Component {
                                 <p>Register</p>
                             </button>
                         </Link>
+                        <Link to="/description">
+                            <button type='button'>
+                                <p>Information</p>
+                            </button>
+                        </Link>
+                        <Link to="/SBZNC">
+                            <button type='button'>
+                                <p>Try Searching by ZipCode</p>
+                            </button>
+                        </Link>
+                        <Link to="/SBCNC">
+                            <button type='button'>
+                                <p>Try Searching by Category</p>
+                            </button>
+                        </Link>
 
                     </div>
 
 
                     <div>
                         <label></label>
-                        <h1>  Look for Jobs near you!!! </h1>
-                        <input
-                            type='text'
-                            name='zipCode'
-                            ref='zipCode'
-                            onChange={this.changeHandler}
-                            value={zipCode}
-                            placeholder="ZipCode..."
-
-                        />
+                        <h1>  Jobs Posted Now  </h1>
+            
 
                     </div>
 
-
-                    <input type="submit" value="Submit" />
-
-
-
-                </form>
 
                 <div>
 
@@ -114,11 +119,13 @@ class Home extends Component {
                             return (
 
                                 <div class="container2" key={index}>
-                                    <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
-                                    <h2> {'Job: ' + jobs.jobTitle} </h2>
+                                    
+                                    <h1> {'Job: ' + jobs.jobTitle} </h1>
+                                    <h2> Sign in or create a account for contact info </h2>
                                     <p>  {'Job Descirption: ' + jobs.jobDescription} </p>
                                     <p>  {'Location: ' + jobs.location} </p>
-                                    <p>  {'Contact Information: ' + jobs.emailAddress} </p>
+                                    
+                                    
 
                                 </div>
 

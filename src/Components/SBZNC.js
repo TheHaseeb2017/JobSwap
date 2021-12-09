@@ -4,14 +4,14 @@ import Logo from './../Images/jobswap.png'
 import { Link } from "react-router-dom";
 
 
-class searchByCat extends Component {
+class SBZNC extends Component {
 
 
     constructor(props) {
         super(props)
 
         this.state = {
-            catergory: '',
+            zipCode: '',
             jobs: []
 
         }
@@ -22,10 +22,10 @@ class searchByCat extends Component {
     submitHandler = (e) => {
         e.preventDefault()
 
-        const catergory = document.querySelector('input').value;
+        const zipCode = document.querySelector('input').value;
 
 
-        fetch('http://localhost:5000/api/SwapJobs/GetJobByCat?category=' + catergory, this.state,)
+        fetch('http://localhost:5000/api/SwapJobs/GetJobByZipr?zip=' + zipCode, this.state,)
 
             .then(response => response.json())
             .then(response => this.setState({ 'jobs': response }))
@@ -41,13 +41,13 @@ class searchByCat extends Component {
 
 
     render() {
-        const { catergory } = this.state
+        const { zipCode } = this.state
         return (
             <div class="container">
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <img className="logo" src={Logo} />
-                        <h1>Search for Jobs by Category</h1>
+                        <h1>Search for Jobs by ZipCode</h1>
 
                     </div>
 
@@ -55,11 +55,11 @@ class searchByCat extends Component {
                         <label></label>
                         <input
                             type='text'
-                            name='catergory'
-                            ref='catergory'
+                            name='zipCode'
+                            ref='zipCode'
                             onChange={this.changeHandler}
-                            value={catergory}
-                            placeholder="Catergory..."
+                            value={zipCode}
+                            placeholder="ZipCode..."
 
                         />
 
@@ -67,7 +67,7 @@ class searchByCat extends Component {
 
 
                     <input type="submit" value="Submit" />
-                    <Link to="/Home">
+                    <Link to="/">
                         <button type='button'>
                             <p>Home</p>
                         </button>
@@ -84,11 +84,13 @@ class searchByCat extends Component {
                             return (
 
                                 <div class="container2" key={index}>
-                                    <h1> {'User: ' + jobs.firstName + ' ' + jobs.lastName}</h1>
-                                    <h2> {'Job: ' + jobs.jobTitle} </h2>
+                                    
+                         
+                                    <h1> {'Job: ' + jobs.jobTitle} </h1>
+                                    <h2> Sign in or create a account for contact info </h2>
                                     <p>  {'Job Descirption: ' + jobs.jobDescription} </p>
                                     <p>  {'Location: ' + jobs.location} </p>
-                                    <p>  {'Contact Information: ' + jobs.emailAddress} </p>
+                                    
 
                                 </div>
 
@@ -105,4 +107,4 @@ class searchByCat extends Component {
 
 }
 
-export default searchByCat
+export default SBZNC

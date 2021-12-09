@@ -32,18 +32,24 @@ class myJobs extends Component {
         this.state = {
             jobId: '',
             userID: '',
-            jobs: []
+            jobs: [],
+            index: ''
 
         }
         this.submitHandler = this.submitHandler.bind(this)
     }
+
+    componentDidMount() {
+        this.submitHandler();
+    }
+
 
 
     submitHandler = (e) => {
 
 
 
-        e.preventDefault()
+        //e.preventDefault()
 
         const userID = document.querySelector('input').value;
 
@@ -64,7 +70,9 @@ class myJobs extends Component {
     }
 
     submitHandler2 = (e) => {
-        console.log(tokenContext.Provider);
+
+        console.log("Hello");
+
         e.preventDefault()
 
 
@@ -81,11 +89,13 @@ class myJobs extends Component {
 
                 if (response.status === 200) {
                     alert('The job with and ID of: ' + this.state.jobId + ' has been deleted!!!')
+                    this.componentDidMount()
                 }
                 else {
                     alert('There no Job with an ID of: ' + this.state.jobId + ' ,please try agian!!!')
                 }
             })
+
 
     }
 
@@ -104,16 +114,9 @@ class myJobs extends Component {
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <img className="logo" src={Logo} />
-                        <h1>Find your Jobs</h1>
+                        <h1>Your Jobs</h1>
 
                     </div>
-
-
-
-                    <input type="submit" value="Show My Jobs" />
-
-
-
 
                 </form>
                 <div class="inline fields">
@@ -137,7 +140,10 @@ class myJobs extends Component {
                             <input type="submit" value="Delete your Job" />
 
                         </form>
+
                     </div>
+
+
                 </div>
 
 
@@ -145,10 +151,11 @@ class myJobs extends Component {
 
                     <ul>
 
+
                         {this.state.jobs.map(function (jobs, index) {
                             return (
 
-                                <div class="container2" key={index}>
+                                <div class="container2" key={index} >
 
                                     <h1> {'Job ID: ' + jobs.id}</h1>
                                     <h2> {'Job: ' + jobs.jobTitle} </h2>
@@ -156,13 +163,18 @@ class myJobs extends Component {
                                     <p>  {'Location: ' + jobs.location} </p>
 
 
+
+
+
                                 </div>
 
 
-
                             )
+
                         }
+
                         )}
+
                     </ul>
 
                 </div>

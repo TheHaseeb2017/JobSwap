@@ -30,6 +30,9 @@ const Navbar = () => {
           <li>
             <Link to="/changeEmail">Change Email</Link>
           </li>
+          <li>
+            <Link to="/"> Logout</Link>
+          </li>
 
 
 
